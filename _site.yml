@@ -3,25 +3,20 @@ output_dir: "."
 navbar:
   title: "Home"
   left:
-  - text: About
-    menu:
-    - text: "Our Project"
-      href: Report.html
-    - text: "Us"
-      href: Authors.html
-    - text: "Data source"
-      href: About.html
+  - text: "Data Sources"
+    href: data_sources.html
+  - text: "Data Cleaning"
+    href: data_cleaning.html
+  - text: "Analysis"
+    href: analysis.html
+  - text: "Elk Dashboard"
   right:
-    - text: "Demographics"
-      href: descriptives.html
-    - text: "Activity"
-      href: habitat.html
-    - text: "Communication"
-      href: activities.html
-    - text: "Shiny App"
-      href: https://selinahsuan.shinyapps.io/shiny_app/ 
+    - text: "Meet the Team"
+      href: about_team.html
     - icon: fa-github fa-lg
-      href: https://github.com/fish-carolyn/p8105_squirrel_final.git
+      href: https://github.com/brooklynnrm/Elk-Migration.github.io.git
 output:
   html_document:
-      css: bootstrap.css
+    theme: flatly
+    
+    

@@ -1,0 +1,23 @@
+---
+title: "Meet the Team"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+---
+Thank you for checking out our analysis on Elk Migration in Yellowstone. Meet the team that created this project below!
+
+## Brooklynn McNeil
+
+insert website
+
+find elk image
+
+Brooklynn is a part-time Environmental Health Data Science Masters Student at Columbia University.
+
+## Dylan Morgan
+
+## Tamara Pichardo
+
+## Wayne Monical
