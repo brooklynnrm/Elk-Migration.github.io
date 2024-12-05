@@ -1,0 +1,27 @@
+name: "Elk Migration in Yellowstone"
+output_dir: "."
+navbar:
+  title: "Home"
+  left:
+  - text: About
+    menu:
+    - text: "Our Project"
+      href: Report.html
+    - text: "Us"
+      href: Authors.html
+    - text: "Data source"
+      href: About.html
+  right:
+    - text: "Demographics"
+      href: descriptives.html
+    - text: "Activity"
+      href: habitat.html
+    - text: "Communication"
+      href: activities.html
+    - text: "Shiny App"
+      href: https://selinahsuan.shinyapps.io/shiny_app/ 
+    - icon: fa-github fa-lg
+      href: https://github.com/fish-carolyn/p8105_squirrel_final.git
+output:
+  html_document:
+      css: bootstrap.css
