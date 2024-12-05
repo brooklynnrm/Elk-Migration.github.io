@@ -10,14 +10,38 @@ Thank you for checking out our analysis on Elk Migration in Yellowstone. Meet th
 
 ## Brooklynn McNeil
 
-insert website
-
-find elk image
+You can find her website [here](https://brooklynnrm.github.io/)
 
 Brooklynn is a part-time Environmental Health Data Science Masters Student at Columbia University.
 
+```{r, echo=FALSE, fig.width = 10}
+knitr::include_graphics("pics/team/brooklynn.jpg")
+```
+
 ## Dylan Morgan
+
+You can find his website [here]()
+
+```{r, echo=FALSE, fig.width = 10}
+knitr::include_graphics("pics/team/dylan.jpg")
+```
 
 ## Tamara Pichardo
 
+You can find her website [here]()
+
+```{r, echo=FALSE, fig.width = 10}
+knitr::include_graphics("pics/team/tamara.jpg")
+```
+
 ## Wayne Monical
+
+You can find his website [here]()
+
+```{r, echo=FALSE, fig.width = 10}
+knitr::include_graphics("pics/team/wayne.jpg")
+```
+
+
+
+Photos were obtained from this [gallery](https://www.nps.gov/media/photo/gallery.htm?pg=1925497&id=F94243C9-1DD8-B71B-0B6A91B7B5171A35)

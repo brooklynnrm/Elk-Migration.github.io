@@ -3,5 +3,17 @@ title: "Data Sources"
 output: html_document
 ---
 
-Here's where we found our data.
+## Elk Data
+The [elk data](https://www.usgs.gov/data/elk-gps-collar-data-national-elk-refuge-2006-2015) is a publicly available data set that has GPS tracking on elk in Yellowstone and the Grand Tetons National Park. From 2006 to 2015, 17 dault female elk were captured and collared with GPS tracking, giving several data points a day. Each elk was monitored for a time period of 1 to 2 years. 
 
+## Water Quality Data
+The [water quality data](https://catalog.data.gov/dataset/greater-yellowstone-network-published-water-quality-data-through-2023-from-the-bicawq01-g-) was obtained from the federal government data catalog. It contains water quality measures from 2005 to 2023. This dataset is filtered for the Grand Tetons and Yellowstone National Parks. 
+
+## Weather Data
+To explore weather patterns, [data](https://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCND) was obtained from National Oceanic and Atmospheric Administration.
+
+**Dylan please add more info here**
+
+## Land Cover Data
+
+The [Land cover data](https://www.usgs.gov/programs/gap-analysis-project/science/land-cover-data-download) came from the United States Geological Survey. 
