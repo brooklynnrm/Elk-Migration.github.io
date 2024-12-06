@@ -36,7 +36,7 @@ knitr::include_graphics("pics/team/team_3.jpg")
 
 ## Wayne Monical
 
-You can find his website [here]()
+Wayne Monical is a first-year master's degree student of Biostatistics at Columbia University. You can find his website [here](https://wayne-monical.github.io/)
 
 ```{r, echo=FALSE, fig.width = 10}
 knitr::include_graphics("pics/team/team_4.jpg")
