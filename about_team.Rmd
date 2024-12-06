@@ -20,7 +20,7 @@ knitr::include_graphics("pics/team/team_1.jpg")
 
 ## Dylan Morgan
 
-You can find his website [here]()
+Dylan is a master's student in Environmental Health Data Science at Columbia University. You can find his website [here](https://dcm2192.github.io/)
 
 ```{r, echo=FALSE, fig.width = 10}
 knitr::include_graphics("pics/team/team_2.jpg")
