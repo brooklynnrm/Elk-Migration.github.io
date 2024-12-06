@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 pics/
+clean_data/
+raw_data/

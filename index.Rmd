@@ -10,6 +10,8 @@ output:
 
 ```{r, include = FALSE}
 library(tidyverse)
+library(leaflet)
+library(leaflet.extras2)
 ```
 
 ```{r, include = FALSE}
@@ -46,13 +48,31 @@ Description of elk and why we are interested.
 ### Meet the Elk in Yellowstone
 
 Hover over each point on the map to learn more about.
-```{r, fig.width= 8, fig.align='right'}
+Import elk migration data.
 
+```{r}
+elk_df = read_csv("clean_data/elk.csv") |>
+  mutate(datetime = make_datetime(year, month, day, hour)) |>
+  select(elk_id, datetime, lat, long)
+
+# Let's make a custom elk icon!!
+moose_icon <- makeIcon(
+  iconUrl = "pics/elk_icon.png", # Replace with the URL of your moose image
+  iconWidth = 30, iconHeight = 30
+)
+
+elk_df |>
+  filter(year(datetime) == 2012) |>
+  leaflet() |>
+  addProviderTiles(providers$CartoDB.Positron, group = "Base Map") |>
+  addProviderTiles(providers$Esri.NatGeoWorldMap, group = "NatGeo Map") |>
+   addMarkers(
+    lng = ~long, lat = ~lat,
+    icon = moose_icon,  # Use the custom icon
+    popup = ~paste("Elk ID:", elk_id, "Date", date(datetime))  # Add a popup with Elk ID
+  )
+    
 ```
-
-
-
-
 
 ---
 
