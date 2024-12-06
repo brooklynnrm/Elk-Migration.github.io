@@ -15,7 +15,7 @@ You can find her website [here](https://brooklynnrm.github.io/)
 Brooklynn is a part-time Environmental Health Data Science Masters Student at Columbia University.
 
 ```{r, echo=FALSE, fig.width = 10}
-knitr::include_graphics("pics/team/brooklynn.jpg")
+knitr::include_graphics("pics/team/team_1.jpg")
 ```
 
 ## Dylan Morgan
@@ -23,7 +23,7 @@ knitr::include_graphics("pics/team/brooklynn.jpg")
 You can find his website [here]()
 
 ```{r, echo=FALSE, fig.width = 10}
-knitr::include_graphics("pics/team/dylan.jpg")
+knitr::include_graphics("pics/team/team_2.jpg")
 ```
 
 ## Tamara Pichardo
@@ -31,7 +31,7 @@ knitr::include_graphics("pics/team/dylan.jpg")
 You can find her website [here]()
 
 ```{r, echo=FALSE, fig.width = 10}
-knitr::include_graphics("pics/team/tamara.jpg")
+knitr::include_graphics("pics/team/team_3.jpg")
 ```
 
 ## Wayne Monical
@@ -39,7 +39,7 @@ knitr::include_graphics("pics/team/tamara.jpg")
 You can find his website [here]()
 
 ```{r, echo=FALSE, fig.width = 10}
-knitr::include_graphics("pics/team/wayne.jpg")
+knitr::include_graphics("pics/team/team_4.jpg")
 ```
 
 
