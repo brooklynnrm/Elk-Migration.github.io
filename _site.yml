@@ -9,6 +9,8 @@ navbar:
     href: data_cleaning.html
   - text: "Analysis"
     href: analysis.html
+  - text: "Report"
+    href:  report.html
   - text: "Elk Dashboard"
   right:
     - text: "Meet the Team"

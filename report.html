@@ -11,7 +11,7 @@
 
 
 
-<title>Meet the Team</title>
+<title>Report</title>
 
 <script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -33,6 +33,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
@@ -221,6 +222,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -351,39 +355,101 @@ div.tocify {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore">Meet the Team</h1>
+
+<h1 class="title toc-ignore">Report</h1>
 
 </div>
 
 
-<p>Thank you for checking out our analysis on Elk Migration in
-Yellowstone. Meet the team that created this project below!</p>
-<div id="brooklynn-mcneil" class="section level2">
-<h2>Brooklynn McNeil</h2>
-<p>You can find her website <a
-href="https://brooklynnrm.github.io/">here</a></p>
-<p>Brooklynn is a part-time Environmental Health Data Science Masters
-Student at Columbia University.</p>
-<p><img src="pics/team/team_1.jpg" width="250" /></p>
+<div
+id="elk-expeditions-the-elk-the-environment-and-the-evolving-migration-in-yellowstone"
+class="section level1">
+<h1>Elk Expeditions: The Elk, the Environment, and the Evolving
+Migration in Yellowstone</h1>
+<p>The written report produced by your team is central to this project.
+This will detail how you completed your project, and should cover data
+collection and cleaning, exploratory analyses, alternative strategies,
+descriptions of approaches, and a discussion of results. We anticipate
+that your project will change somewhat over time; these changes and the
+reasons for them should be documented! You will write one report
+document per group, and be sure to include all group member names in the
+document.</p>
+<p>Your report should include the following topics. Depending on your
+project type the amount of discussion you devote to each of them will
+vary:</p>
+<div id="motivation" class="section level2">
+<h2>Motivation:</h2>
+<p>Provide an overview of the project goals and motivation.</p>
 </div>
-<div id="dylan-morgan" class="section level2">
-<h2>Dylan Morgan</h2>
-<p>You can find his website <a href="">here</a></p>
-<p><img src="pics/team/team_2.jpg" width="522" /></p>
+<div id="related-work" class="section level2">
+<h2>Related work:</h2>
+<p>Anything that inspired you, such as a paper, a web site, or something
+we discussed in class.</p>
 </div>
-<div id="tamara-pichardo" class="section level2">
-<h2>Tamara Pichardo</h2>
-<p>You can find her website <a href="">here</a></p>
-<p><img src="pics/team/team_3.jpg" width="250" /></p>
+<div id="initial-questions" class="section level2">
+<h2>Initial questions:</h2>
+<p>What questions are you trying to answer? How did these questions
+evolve over the course of the project? What new questions did you
+consider in the course of your analysis? ## Data: Source, scraping
+method, cleaning, etc.</p>
 </div>
-<div id="wayne-monical" class="section level2">
-<h2>Wayne Monical</h2>
-<p>You can find his website <a href="">here</a></p>
-<p><img src="pics/team/team_4.jpg" width="250" /></p>
-<p>Photos were obtained from this <a
-href="https://www.nps.gov/media/photo/gallery.htm?pg=1925497&amp;id=F94243C9-1DD8-B71B-0B6A91B7B5171A35">gallery</a></p>
+<div id="exploratory-analysis" class="section level2">
+<h2>Exploratory analysis:</h2>
+<p>Visualizations, summaries, and exploratory statistical analyses.
+Justify the steps you took, and show any major changes to your
+ideas.</p>
+</div>
+<div id="additional-analysis" class="section level2">
+<h2>Additional analysis:</h2>
+<p>If you undertake formal statistical analyses, describe these in
+detail</p>
+</div>
+<div id="discussion" class="section level2">
+<h2>Discussion:</h2>
+<p>What were your findings? Are they what you expect? What insights into
+the data can you make?</p>
+<p>As this will be your only chance to describe your project in detail,
+make sure that your report is a standalone document that fully describes
+your process and results. We also expect you to write high-quality code
+that is understandable to an outside reader. Coding collaboratively and
+actively reviewing code within the team will help with this!</p>
+</div>
+<div id="r-markdown" class="section level2">
+<h2>R Markdown</h2>
+<p>This is an R Markdown document. Markdown is a simple formatting
+syntax for authoring HTML, PDF, and MS Word documents. For more details
+on using R Markdown see <a href="http://rmarkdown.rstudio.com"
+class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be
+generated that includes both content as well as the output of any
+embedded R code chunks within the document. You can embed an R code
+chunk like this:</p>
+<pre class="r"><code>summary(cars)</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+</div>
+<div id="including-plots" class="section level2">
+<h2>Including Plots</h2>
+<p>You can also embed plots, for example:</p>
+<p><img src="report_files/figure-html/pressure-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the
+code chunk to prevent printing of the R code that generated the
+plot.</p>
+</div>
 </div>
 
 
@@ -421,6 +487,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {
