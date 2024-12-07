@@ -8,11 +8,11 @@ output:
     toc_float: true
 ---
 
-```{r setup, include = FALSE} 
+```{r setup} 
 knitr::opts_chunk$set(warning = FALSE) 
 ```
 
-```{r packages, message = FALSE, include = FALSE}
+```{r packages, message = FALSE}
 library(tidyverse)
 library(ggmap)
 library(geosphere)
@@ -21,7 +21,7 @@ library(plotly)
 library(patchwork)
 ```
 
-```{r data, message = FALSE, include = FALSE}
+```{r data, message = FALSE}
 elk = read_csv("clean_data/elk.csv")
 
 raw_weather <- read_csv("raw_data/raw_weather_data.csv")
@@ -82,7 +82,7 @@ Among the key factors that we considered to be potentially influential to elk mi
 
 Given that there were numerous weather stations in the Yellowstone/Grand Teton area in Wyoming, several of which were contained within the various elk pathways we analyzed, we decided that the best way to effectively approximate the weather patterns across the entirety migration pathways would be to use the data provided by the four stations in the plots below, which span a wide coverage of the migration areas (shown in red).  
 
-```{r station plots, echo = FALSE}
+```{r station plots}
 four_stations_labels_plot <- 
   ggplot(data = reduced_weather_stations,
          aes(x = LONGITUDE, y = LATITUDE)) +
@@ -116,7 +116,7 @@ In the `reduced_weather` dataset, we were mainly concerned with four weather var
 
 Starting with precipitation patterns, the plots below show relatively consistent patterns in monthly rainfall throughout the given year, in which the summer months often saw less precipitation out of all other seasons, whereas late winter through spring showed generally higher precipitation. While the exact months of these highs and lows vary per year, the general pattern shown each year is a U-shaped distribution from the start of the year to the end.  
 
-```{r precip, echo = FALSE, message = FALSE}
+```{r precip, message = FALSE}
 reduced_weather |> 
   select(c(STATION, NAME, LATITUDE, LONGITUDE, DATE, PRCP, SNOW, SNWD, TAVG)) |> 
   mutate(year = format(DATE, "%Y"), 
@@ -169,7 +169,7 @@ reduced_weather |>
 
 Perhaps not surprisingly, snowfall and snow depth were both highest in the winter and early spring months and non-existent in the summer months through early fall. There were slight differences between these two variables such that the highest snow depth measurements were visible for longer (more months out of the year) than when the highest snowfall measurements were visible. These patterns are apparent when comparing the plots side-by-side below. These snow patterns are expected for this area and help validate the reasonability of our weather data.    
 
-```{r snowfall and snow depth, echo = FALSE, message = FALSE}
+```{r snowfall and snow depth, message = FALSE}
 ### snowfall ###
 # faceted bar chart, separated by month and year -- KEEP STATIC, USE FOR ANALYSIS PAGE
 snowfall_facet_bar <- 
@@ -284,7 +284,7 @@ snowdepth_bar_plotly
 
 Finally, when visualizing the monthly average temperatures (see below), we see a consistent pattern each year in which the monthly temperatures rise to their peaks in the summer months (July, specifically) and gradually decline after this peak, and the lowest temperatures occurred in January and December. As was the case with our snow data, this is a surprising pattern for Wyoming, and helps validate our data by ensuring that no unexpected shifts in seasonal patterns occurred over the years.  
 
-```{r avg temp, echo = FALSE, message = FALSE}
+```{r avg temp, message = FALSE}
 # faceted bar chart, separated by month and year -- KEEP STATIC, USE FOR ANALYSIS PAGE
 reduced_weather |> 
   select(c(STATION, NAME, LATITUDE, LONGITUDE, DATE, PRCP, SNOW, SNWD, TAVG)) |> 
@@ -333,7 +333,7 @@ reduced_weather |>
 After examining the weather data by itself, we then visualized these datasets with the elk migration data to see if there were any visible patterns or trends that emerged. More specifically, we wanted to see if changes in each of the four weather measurements affected the total distance traveled by each elk on a given day, and we did so by plotting the total daily distance traveled as the dependent variable against each of the four weather measurements as the dependent variable.  
 
 Following the same order as the previous section, we first plotted the daily distance traveled by the elk against the daily precipitation recordings. In the scatterplot below, we see that the daily distance traveled varied more widely when the daily precipitation measurement was lowest, and that this variation decreased as precipitation levels increased. The smooth-mean line (shown in blue below) across all years appears to have a slight positive slope; this is also reflected in the smooth-mean line graph separated by each elk, which shows that several of the elk appear to increase their distance traveled as precipitation increases. Given that many of the other elk do not follow this same trend, and the smooth-mean lines appear to vary from one another, it is not clear to say whether precipitation increases saw an increase in distance traveled by elk.    
-```{r precip vs dist, echo = FALSE, message = FALSE}
+```{r precip vs dist, message = FALSE}
 elk_prcp_distkm_pts <- 
   daily_elk |> 
   ggplot(aes(x = prcp, y = dist_km)) + 
@@ -354,7 +354,7 @@ ggplotly(elk_prcp_distkm_smooth)
 
 Similar to the precipitation plot, the snowfall scatterplot also shows greater variation of daily distance traveled among elk at lower snowfall measurements than at higher snowfall measurements. The smooth-mean trend (blue line) does not appear to have much of a positive or negative trend, and while there are only three elk available with associated snowfall data, the smooth-mean trends for each elk follow a similar pattern in which they traveled longer distances on days with lower snowfall, followed by a sharp decline in distance traveled on days with snowfall starting at between approximately 0.3 (Elk 706) and 1.2 in (Elk 654), followed by a gradual increase in distance traveled on days with snowfall starter at or greater than approximately 1.2 (Elk 706) and 3.5 in (Elk 654).  
 
-```{r snowfall vs dist, echo = FALSE, message = FALSE}
+```{r snowfall vs dist, message = FALSE}
 elk_snowfall_distkm_pts <- 
   daily_elk |> 
   ggplot(aes(x = snow, y = dist_km)) + 
@@ -375,7 +375,7 @@ ggplotly(elk_snowfall_distkm_smooth)
 
 For snow depth, the overall mean-smooth trend does not show a clear positive or negative trend of distance traveled in response to changes in snow depth. However, when examining the mean-smooth trends of each elk , we see similar patterns among all elk, in which there is a rapid increase in distance traveled on days with lower snow depth (between 0 and ~10-15 in for most elk), followed by a rapid decrease in distance traveled among elk on days with snow depth between ~15 and 35-45 in for most elk, then rapid increases in distance traveled for snow depths beyond this point.  
 
-```{r snow depth vs dist, echo = FALSE, message = FALSE}
+```{r snow depth vs dist, message = FALSE}
 elk_snowdepth_distkm_pts <- 
   daily_elk |> 
   ggplot(aes(x = snwd, y = dist_km)) + 
@@ -396,7 +396,7 @@ ggplotly(elk_snowdepth_distkm_smooth)
 
 Lastly, after examining the relationship between daily distance traveled and average daily temperature, we can see a slight downward trend in daily distance traveled among elk as average daily temperature increases, as shown by the main blue mean-smooth line that shows a slightly negative overall slope. This negative relationship is visible in the other plot in which daily distance traveled in response to average temperature is shown for each elk. In this plot, we can see that in general, most elk traveled less on a given day as the average daily temperature increased, and some elk showed a slight uptick in daily distance traveled in the middle of the two temperature extremes (between approximately 25 and 40 degrees F for most elk), before a sharp decline in distance traveled on days with temperatures greater than this range.  
 
-```{r avg temp vs dist, echo = FALSE, warning = FALSE}
+```{r avg temp vs dist, warning = FALSE}
 elk_avgtemp_distkm_pts <- 
   daily_elk |> 
   ggplot(aes(x = tavg, y = dist_km)) + 

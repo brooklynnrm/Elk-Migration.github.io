@@ -402,7 +402,7 @@ In the `weather` dataset, we were mainly concerned with four weather variables: 
 
 Starting with precipitation patterns, the plots below show relatively consistent patterns in monthly rainfall throughout the given year, in which the summer months often saw less precipitation out of all other seasons, whereas late winter through spring showed generally higher precipitation. While the exact months of these highs and lows vary per year, the general pattern shown each year is a U-shaped distribution from the start of the year to the end.  
 
-```{r precip, echo = FALSE, message = FALSE}
+```{r precip, message = FALSE}
 weather |> 
   group_by(name, year, month) |> 
   summarize(station_precip_total = sum(prcp, na.rm = TRUE)) |> 
@@ -422,7 +422,7 @@ weather |>
 After examining the weather data by itself, we then visualized these data sets with the elk migration data to see if there were any visible patterns or trends that emerged. More specifically, we wanted to see if changes in each of the four weather measurements affected the total distance traveled by each elk on a given day, and we did so by plotting the total daily distance traveled as the dependent variable against each of the four weather measurements as the dependent variable.  
 
 Following the same order as the previous section, we first plotted the daily distance traveled by the elk against the daily precipitation recordings. In the scatter plot below, we see that the daily distance traveled varied more widely when the daily precipitation measurement was lowest, and that this variation decreased as precipitation levels increased. The smooth-mean line (shown in blue below) across all years appears to have a slight positive slope; this is also reflected in the smooth-mean line graph separated by each elk, which shows that several of the elk appear to increase their distance traveled as precipitation increases. Given that many of the other elk do not follow this same trend, and the smooth-mean lines appear to vary from one another, it is not clear to say whether precipitation increases saw an increase in distance traveled by elk.    
-```{r precip vs dist, echo = FALSE, message = FALSE}
+```{r precip vs dist, message = FALSE}
 elk_prcp_distkm_pts <- 
   daily_elk |> 
   ggplot(aes(x = prcp, y = dist_km)) + 
