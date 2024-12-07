@@ -10,38 +10,28 @@ Thank you for checking out our analysis on Elk Migration in Yellowstone. Meet th
 
 ## Brooklynn McNeil
 
-You can find her website [here](https://brooklynnrm.github.io/)
+Brooklynn is a part-time Environmental Health Data Science Masters Student at Columbia University. You can find her website [here](https://brooklynnrm.github.io/)
 
-Brooklynn is a part-time Environmental Health Data Science Masters Student at Columbia University.
-
-```{r, echo=FALSE, fig.width = 10}
-knitr::include_graphics("pics/team/team_1.jpg")
-```
+<img src="pics/team/team_1.jpg" alt="Description" style="width: 300px; height: auto;">
 
 ## Dylan Morgan
 
 Dylan is a master's student in Environmental Health Data Science at Columbia University. You can find his website [here](https://dcm2192.github.io/)
 
-```{r, echo=FALSE, fig.width = 10}
-knitr::include_graphics("pics/team/team_2.jpg")
-```
+<img src="pics/team/team_2.jpg" alt="Description" style="width: 300px; height: auto;">
 
 ## Tamara Pichardo
 
-You can find her website [here]()
+Tamara Pichardo is a master's student in Environmental Health Data Science at Columbia University. You can find her website [here]()
 
-```{r, echo=FALSE, fig.width = 10}
-knitr::include_graphics("pics/team/team_3.jpg")
-```
+<img src="pics/team/team_5.jpg" alt="Description" style="width: 300px; height: auto;">
 
 ## Wayne Monical
 
 Wayne Monical is a first-year master's degree student of Biostatistics at Columbia University. You can find his website [here](https://wayne-monical.github.io/)
 
-```{r, echo=FALSE, fig.width = 10}
-knitr::include_graphics("pics/team/team_4.jpg")
-```
+<img src="pics/team/team_6.jpg" alt="Description" style="width: 300px; height: auto;">
 
-
+## 
 
 Photos were obtained from this [gallery](https://www.nps.gov/media/photo/gallery.htm?pg=1925497&id=F94243C9-1DD8-B71B-0B6A91B7B5171A35)
