@@ -55,6 +55,8 @@ Visualizations, summaries, and exploratory statistical analyses. Justify the ste
 
 
 
+
+
 ### Additional analysis  
 
 Beyond the visualizations and analyses presented in the exploratory analysis, this project also featured some additional forms of analysis, particularly regarding the water quality data and its potential impact on the elk subjects. After compiling and visualizing the data pertaining to water contaminants (e.g., chloride, magnesium, phosphorous) and other properties (e.g., dissolved oxygen, water temperature, pH), we were able to assess the potential impacts that these toxicant concentrations could have on the health of the elk subjects. 

@@ -470,7 +470,7 @@ weather |>
   summarize(station_precip_total_avg = mean(station_precip_total, na.rm = TRUE)) |> 
   mutate(year_month = paste(year, month, sep = "-")) |> 
   plot_ly(
-    x = ~month, y = ~station_precip_total_avg, color = ~year, group = ~year, type = 'scatter', mode = 'lines'
+    x = ~month, y = ~station_precip_total_avg, color = ~as.factor(year), group = ~year, type = 'scatter', mode = 'lines'
     ) |> 
   layout(xaxis = list(title = "Month"), 
          yaxis = list(title = "Total Precipitation (in)"), legend = list(title = list(text = "Year")))
