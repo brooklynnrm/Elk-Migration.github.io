@@ -1,8 +1,11 @@
 ---
 title: "Elk Migration"
-author: "Brooklynn McNeil"
-date: "2024-11-18"
-output: html_document
+output: 
+  html_document:
+    code_folding: hide
+    always_allow_html: true
+    toc: true
+    toc_float: true
 ---
 
 Load packages and set options.
@@ -32,14 +35,15 @@ scale_fill_discrete = scale_fill_viridis_d
 
 Import elk migration data.
 
-```{r}
-elk_df = read_csv("../clean_data/elk.csv") |>
+```{r message=FALSE, warning=FALSE}
+elk_df = read_csv("clean_data/elk.csv") |>
   mutate(datetime = make_datetime(year, month, day, hour),
          elk_id = factor(elk_id)) |>
-  select(elk_id, datetime, lat, long)
+  dplyr::select(elk_id, datetime, lat, long)
 
 elk_df
 ```
+
 The elk IDs are: `r unique(elk_df$elk_id)`, and we are going to follow them around Yellowstone! I found a cute picture of an elk in the snow  [here](https://powertraveller.com/yellowstone-winter-wildlife-safari-from-gardiner/)
 
 <img src="pics/elk.png" style="width:75%"/>
@@ -76,10 +80,12 @@ elk_df |>
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 75))
 ```
+
 It looks like in 2013 the elk traveled much farther in longitude than the other years. In 2011, the elk did not go nearly as far East as in other years. In 2010 and 2011 there was more sparse travel and it looks like the elk liked to hang out in the far North and far South spots. The data in 2006 looks like it is not as rich and there might be missing data points here.
 
 Let's find out what the range of latitude and longitude was for the individual elk each year. I want to see the top 10 elk that moved the most. First let's look at the top 10 movers for latitude.
-```{r}
+
+```{r message=FALSE, warning=FALSE}
 elk_df |>
   group_by(elk_id, year(datetime)) |>
   summarize(longitude_range = max(long) - min(long)) |>
@@ -87,10 +93,12 @@ elk_df |>
   head(n= 10) |>
   knitr::kable(col.names = c("Elk ID", "Year", "Longitude Range"))
 ```
+
 We can see that our top 3 movers in terms of longitude are Elk 900, 917, and 916. Elk 917 shows up in this list 3 times for the years 2013, 2014, and 2015. This elk is exploring farther each year!
 
-Now let's look at the top movers in terms of latitiude. 
-```{r}
+Now let's look at the top movers in terms of latitude. 
+
+```{r message=FALSE, warning=FALSE}
 elk_df |>
   group_by(elk_id, year(datetime)) |>
   summarize(latitude_range = max(lat) - min(lat)) |>
@@ -98,11 +106,12 @@ elk_df |>
   head(n= 10) |>
   knitr::kable(col.names = c("Elk ID", "Year", "Latitude Range"))
 ```
+
 Again we see elk 917 showing up as a top move in terms of latitude for the years 2013, 2014, and 2015 with the range going up each year.This elk is quite the explorer! We can also see that this elk has very similar results to elk 916 for 2013 and 2014. Maybe they move together? We will check this out later in the maps.  
 
 Now I want to look at how the total movement of each elk changes across the months of the year. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 elk_df |>
   group_by(elk_id, year = year(datetime), month = month(datetime, label = TRUE)) |> 
   mutate(
@@ -121,11 +130,12 @@ elk_df |>
     fill = "Month") +
   theme(axis.text.x = element_text(angle = 90))
 ```
+
 It looks like there is quite a lot of variance in the movement of different elk. What is really interesting is that December is a big moving month! And November is right behind December in terms of total movement. I wonder if this is a pattern that elk have of moving when the temperature drops, or if there is something skewing the data like this. 
 
 Let's look at the daily averages and how this compares for each of the elk. We are going to only look at the IQR so we can see what the movement is like on most days. It looks like most days they move around
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 daily_median = 
   elk_df |>
   mutate(
@@ -155,7 +165,7 @@ elk_df |>
 
 Now let's look at how far they travel throughout the year. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 #calculate the distance they travel each month
 elk_seasonal <- elk_df |>
   mutate(
@@ -186,11 +196,12 @@ elk_distances_seasonal |>
   pivot_wider(names_from = season, values_from = total_distance_km) |>
   knitr::kable(col.names = c("Elk ID", "Year", "Fall", "Spring", "Summer", "Winter"))
 ```
+
 Now I am curious what the overlap of the elk are? The data collected is between 2006 and 2015, but we do not have data from all of the elk ids during that time period. It turns out that wild elk can only live up to 10-12 years, according to [worlddeer.ord](https://worlddeer.org/elk/). So let's find out what the time range is for each of these elk.
 
 One thing I want to check is if the number of data points for each elk is skewing the data. Let's see how the number of data points spread across the time frame.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 elk_df |>
   group_by(elk_id) |>
   mutate(
@@ -211,9 +222,10 @@ elk_df |>
        y = "# of data points",
        fill = "Year") 
 ```
+
 We can see that the data is not consistent for for all of the elk across the 2006-2015 time period. However, there is a lot of overlap for 2 groups of elk. In further analysis we will use the 8 elk that overlap in 2013 and 2014. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 elk_df |>
   group_by(elk_id) |>
   summarize(start_time = min(datetime),
@@ -226,11 +238,12 @@ elk_df_2013.2014 =
          datetime <= as_date("2014-12-30"),
          elk_id %in% c(907, 909, 911, 913, 914, 916, 917, 918))
 ```
+
 The most overlapping data occurs between July 16th 2013 and December 30th, 2014. We have 8 elk that have data for this time range: `r unique(elk_df_2013.2014$elk_id)`. Now let's see how they move around!
 
 Plot the seasonal data
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 elk_monthly = elk_df_2013.2014 |>
   mutate(
     year = year(datetime),  
@@ -263,11 +276,12 @@ elk_distance_monthly |>
        x = "month",
        y = "total distance (km)")
 ```
+
 It looks like May and December are when the elk are moving around the most. 
 
 I want to check if the number of observations for each month has an impact on these trends. I'm going to see if normalizing the data based on the number of observations has a significant impact on the trends. 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 elk_distance_normalized = 
   elk_monthly |>
   group_by(elk_id, year, month) |>
@@ -292,11 +306,12 @@ elk_distance_normalized |>
        x = "month",
        y = "normalized distance")
 ```
+
 The normalized data has a similar trend so we will continue with the raw data in km.
 
 Let's see where the elk are moving around in the month of May. Below is the elk mapped in Yellowstone park with their start and end points.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # Let's make a custom elk icon!!
 elk_icon <- makeIcon(
   iconUrl = "pics/elk_icon.png", # Replace with the URL of your moose image
@@ -350,11 +365,12 @@ map <- map |>
 map
 
 ```
+
 From the leaflet we can tell that the elk all started somewhat close together and migrated northward. They all followed a similar path up to Jackson Lake and then some started to choose different paths. Elk 916 decided they liked it and stayed close to the lake for the rest of the month. Elk 911, 914, and 917 seemed to stay together from start until end. Maybe they are in the same heard. Cute!
 
 Now let's look at the paths for December because that was also a big movement month.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 filtered_data = elk_df_2013.2014 |>
   filter(month(datetime) == 12,
          year(datetime) == 2014)
@@ -400,7 +416,7 @@ map
 
 Now it seems obvious that there is an issue with the December data. There is something going on with the distance between the first data point of the month and the second because it seems unnatural that and elk could move that far in a matter of a few hours. Let's try to remove the first data point and take another look.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 filtered_data = elk_df_2013.2014 |>
   filter(month(datetime) == 12,
          year(datetime) == 2014,

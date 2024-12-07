@@ -22,7 +22,7 @@ Dylan is a master's student in Environmental Health Data Science at Columbia Uni
 
 ## Tamara Pichardo
 
-Tamara Pichardo is a master's student in Environmental Health Data Science at Columbia University. You can find her website [here]()
+Tamara Pichardo is a master's student in Environmental Health Data Science at Columbia University. You can find her website [here](https://tpichardo7.github.io/tamara-pichardo.github.io/)
 
 <img src="pics/team/team_5.jpg" alt="Description" style="width: 300px; height: auto;">
 
