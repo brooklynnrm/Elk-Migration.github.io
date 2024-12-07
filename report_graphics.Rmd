@@ -224,7 +224,7 @@ elk_distance_normalized |>
 
 Using leaflet, we can create a geographic figure showing the elk's movement around geographic features, such as mountains and lakes. We can tell that the elk began their migration close together, followed a similar path up to Jackson Lake, and then chose different paths. Elk 916 stayed close to the lake for the rest of the month. Elk 911, 914, and 917 seemed to stay together during the entire period. 
 
-```{r, messages=FALSE}
+```{r, messages=FALSE, lebel = 'leaflet_elk'}
 # Let's make a custom elk icon!!
 elk_icon <- makeIcon(
   iconUrl = "pics/elk_icon.png", # Replace with the URL of your moose image
@@ -289,7 +289,7 @@ all_data = read_csv('clean_data/all_data.csv')
 
 
 We also read in the land cover data for the entire region. The yellow regions of the map are fully covered, many cases by water or snow. The large yellow regions represent Jackson lake, Yellowstone Lake, and Heart Lake. The green areas represent land covered by an abundance of foliage or smaller bodies of water, such as creeks. The dark blue and purple regions represent land with scant foliage cover, such as large rocks. 
-```{r, messages=FALSE}
+```{r, messages=FALSE, label = 'raste_region'}
 small_land_coord = rast('clean_data/land_cover.tif')
 
 plot(small_land_coord)
@@ -298,7 +298,7 @@ plot(small_land_coord)
 
 In order to get a better understanding of the elk's habits, we plot the relative frequency of the time that they spend at each land cover value divided by the density of that land cover value. In other words, we plot the time that the elk spend at a particular level of vegetation in relation to how common that level of vegetation is in the region. We begin by binning each land cover value for the region and the elk to find the densities. We divide the elk density by the regional density of each bin. Plotting, we see that elk prefer to spend their time in the regions of middling land cover.In this plot, we see that the elk spend most of their time in the low lying, well vegetated areas of Yellowstone.
 
-```{r, messages=FALSE}
+```{r, messages=FALSE, label = 'elk_density_by_land_cover'}
 land_coord_df = as.data.frame(small_land_coord)
 
 # Define bin breaks
@@ -325,7 +325,7 @@ ggplot( aes(x = land_cover_bins, y = density_elk)) +
 ```
 
 Graphing the two dimensional densities of the elk's 
-```{r, messages=FALSE}
+```{r, messages=FALSE, label = 'elk_density'}
 map_elk_density =
   ggmap(myMap) + 
   geom_density_2d(data = elk, aes(x=long, y=lat, color = 'red')) +
@@ -349,7 +349,7 @@ map_elk_density + land_cover_elk_density
 
 
 Zooming in on the crossing, we see that the elk take one of three paths between Yellowstone national park and the Elk reserve. The first, and furthest West goes between Jackson Lake on the West and Pilgrim mountain to the East. The middle path follows Pilgrim Creek. The East path follows Pacific Creek. 
-```{r}
+```{r elk_paths}
 map_elk_path = 
   ggmap(myMap) + 
   geom_path(data = elk, aes(x=long, y=lat, color = 'red'), alpha = 0.5) +
@@ -373,7 +373,7 @@ map_elk_path + land_cover_elk_path
 # Analyzing Weather
 
 We read in the weather data and aggregate the elk data by day. 
-```{r data, message = FALSE, include = FALSE}
+```{r weather data, message = FALSE, include = FALSE}
 daily_elk <- 
   all_data |> 
   mutate(year_month_day = format(dt, "%Y-%m-%d"), 
@@ -425,7 +425,7 @@ Among the key factors that we considered to be potentially influential to elk mi
 
 Given that there were numerous weather stations in the Yellowstone/Grand Teton area in Wyoming, several of which were contained within the various elk pathways we analyzed, we decided that the best way to effectively approximate the weather patterns across the entirety migration pathways would be to use the data provided by the four stations in the plots below, which span a wide coverage of the migration areas (shown in red).  
 
-```{r}
+```{r weather_stations}
 ggmap(myMap) +
   geom_point(
     data = weather_stations,
@@ -751,7 +751,7 @@ The site GRTE_SNR01 has higher Chloride, Sodium, Sulfur, Arsenic, and Potassium 
 
 
 Examining the data more closely, we see that GRTE_SNR02 has a consistently low level of these chemicals, while GRTE_SNR01 occasionally achieves higher levels of these chemicals.
-```{r, messages=FALSE}
+```{r water_minerals, messages=FALSE}
 water_quality2 |> 
   filter(characteristic_name %in% c(
     'Chloride mg/l', 'Sodium mg/l',
@@ -764,7 +764,7 @@ water_quality2 |>
 
 
 Examining water quality by year. There was not any significant increase or decrease of these minerals at either location. 
-```{r, messages=FALSE}
+```{r water minerals by year, messages=FALSE}
 water_quality2 |> 
   filter(characteristic_name %in% c(
     'Chloride mg/l', 'Sodium mg/l',
@@ -783,7 +783,7 @@ water_quality2 |>
 
 
 In July and August of 2010, there is a large spike in the amount of Arsenic at the GRTE_SNR01 location. 
-```{r}
+```{r arsenic}
 water_quality2 |> 
   mutate(year_month = paste0(year, '-', month)) %>% 
   filter(
@@ -796,7 +796,7 @@ water_quality2 |>
 ```
 
 Mapping the Elk's location during that time, we see that they were indeed downstream of the GRTE_SNR01 location, and were likely exposed to elevated levels of Arsenic during this time. 
-```{r}
+```{r arsenic exposure}
 arsenic_measures = names(all_data)[str_detect(names(all_data), 'Arsenic')]
 
 arsenic_exposure = 
