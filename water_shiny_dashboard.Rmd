@@ -15,10 +15,10 @@ library(leaflet)
 ```
 
 ```{r}
-elk = read.csv(file = "./data/elk.csv") |> 
+elk = read.csv(file = "clean_data/elk.csv") |> 
   mutate(date = as.Date(paste(year, month, day, sep = "-")))
 
-water_quality = read.csv(file = "./data/water_quality.csv") |> 
+water_quality = read.csv(file = "clean_data/water_quality.csv") |> 
   mutate(date = as.Date(paste(year, month, day, sep = "-"))) |> 
   filter(location_id %in% c("GRTE_SNR01", "GRTE_SNR02", "YELL_LM000.5M", "YELL_YS549.7M", "YELL_MD133.2T", "YELL_MDR"))
 ```

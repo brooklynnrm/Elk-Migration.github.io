@@ -255,7 +255,9 @@ $(document).ready(function () {
 <li>
   <a href="report.html">Report</a>
 </li>
-<li class="dropdown-header">Elk Dashboard</li>
+<li>
+  <a href="water_shiny_dashboard.html">Elk Dashboard</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -294,12 +296,12 @@ $(document).ready(function () {
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching core tidyverse packages ────────
+<pre><code>## ── Attaching core tidyverse packages ─────────── tidyverse 2.0.0 ──
 ## ✔ forcats   1.0.0     ✔ readr     2.1.5
 ## ✔ ggplot2   3.5.1     ✔ stringr   1.5.1
 ## ✔ lubridate 1.9.3     ✔ tibble    3.2.1
 ## ✔ purrr     1.0.2     ✔ tidyr     1.3.1</code></pre>
-<pre><code>## ── Conflicts ─────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ───────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
@@ -372,7 +374,7 @@ distance.</p>
     dist_km
   )</code></pre>
 <pre><code>## Rows: 104913 Columns: 11
-## ── Column specification ─────────────────────
+## ── Column specification ───────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (1): TZ
 ## dbl  (9): Elk_ID, UTM_X, UTM_Y, Zone, Lat, Long, month, year, t
@@ -473,7 +475,7 @@ drop the <code>org_code</code> variable because it is homogenous.</p>
     longitude
   )</code></pre>
 <pre><code>## Rows: 18 Columns: 40
-## ── Column specification ─────────────────────
+## ── Column specification ───────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (38): Org_Code, Park_Code, Location_ID, Location_Name, Location_Type, La...
 ## dbl  (2): Latitude, Longitude
@@ -487,13 +489,12 @@ drop the <code>org_code</code> variable because it is homogenous.</p>
 <pre class="r"><code>water_quality_results = 
   read_csv(&#39;raw_data/water_quality/Results.csv&#39;)|&gt; 
   janitor::clean_names()</code></pre>
-<pre><code>## Warning: One or more parsing issues, call
-## `problems()` on your data frame for details,
-## e.g.:
+<pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame
+## for details, e.g.:
 ##   dat &lt;- vroom(...)
 ##   problems(dat)</code></pre>
 <pre><code>## Rows: 35397 Columns: 89
-## ── Column specification ─────────────────────
+## ── Column specification ───────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr  (87): Org_Code, Project_ID, Location_ID, Activity_ID, Activity_Type, Me...
 ## date  (2): Activity_Start_Date, Analysis_Start_Date
@@ -574,9 +575,8 @@ use.</p>
     monthly_min = min(as.numeric(result_text),na.rm = TRUE),
     monthly_max = max(as.numeric(result_text),na.rm = TRUE)
   ) </code></pre>
-<pre><code>## `summarise()` has grouped output by
-## &#39;location_id&#39;, &#39;location_name&#39;, &#39;year&#39;,
-## &#39;month&#39;. You can override using the
+<pre><code>## `summarise()` has grouped output by &#39;location_id&#39;,
+## &#39;location_name&#39;, &#39;year&#39;, &#39;month&#39;. You can override using the
 ## `.groups` argument.</code></pre>
 <pre class="r"><code>water_quality |&gt; write.csv(&#39;clean_data/water_quality.csv&#39;, row.names = FALSE)
 water_quality2 |&gt; write.csv(&#39;clean_data/water_quality2.csv&#39;, row.names = FALSE)
@@ -592,8 +592,8 @@ clean_water =
 write.csv(clean_water, &#39;clean_data/clean_water.csv&#39;, row.names = FALSE)</code></pre>
 </div>
 </div>
-<div id="reading-in-temperature" class="section level2">
-<h2>Reading in Temperature</h2>
+<div id="reading-in-weather-data" class="section level2">
+<h2>Reading in Weather Data</h2>
 <p>To explore the relationship between temperature, precipitation, and
 migration, we use the Global Historical Climatology Network’s data. The
 data is available <a
@@ -627,13 +627,12 @@ weather = read_csv(&quot;raw_data/raw_weather_data.csv&quot;) |&gt;
     month = month(date),
     day = day(date)
   )</code></pre>
-<pre><code>## Warning: One or more parsing issues, call
-## `problems()` on your data frame for details,
-## e.g.:
+<pre><code>## Warning: One or more parsing issues, call `problems()` on your data frame
+## for details, e.g.:
 ##   dat &lt;- vroom(...)
 ##   problems(dat)</code></pre>
 <pre><code>## Rows: 54745 Columns: 31
-## ── Column specification ─────────────────────
+## ── Column specification ───────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr   (2): STATION, NAME
 ## dbl  (21): LATITUDE, LONGITUDE, ELEVATION, AWND, DAPR, MDPR, PRCP, SNOW, SNW...
@@ -661,10 +660,8 @@ the data.</p>
   ) %&gt;% 
   left_join(clean_water) %&gt;% 
   dplyr::select(-dist_to_GRTE_SNR01, -dist_to_GRTE_SNR02)</code></pre>
-<pre><code>## Joining with `by = join_by(year, month,
-## day)`
-## Joining with `by = join_by(year, month,
-## location_id)`</code></pre>
+<pre><code>## Joining with `by = join_by(year, month, day)`
+## Joining with `by = join_by(year, month, location_id)`</code></pre>
 <pre class="r"><code>all_data  |&gt; drop_na(location_name)</code></pre>
 <pre><code>## # A tibble: 36,754 × 78
 ##    elk_id dt                   year month   day  hour   lat  long dist_km
