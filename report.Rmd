@@ -14,31 +14,55 @@ The written report produced by your team is central to this project. This will d
 
 Your report should include the following topics. Depending on your project type the amount of discussion you devote to each of them will vary:
 
-## Motivation: 
+## Motivation:
 
 Provide an overview of the project goals and motivation.
 
-## Related work: 
+Our project explores the dynamics of elk migration in the Grand Tetons and Yellowstone National Park. Inspired by our visits to national parks and our love for wildlife, we embarked on this project to combine interests in wildlife, the environment and our new found data science skills. Utilizing R's mapping capabilities, particularly the leaflet package, we aimed to create an interactive platform to visualize and analyze elk movement patterns.
+
+To enrich our analysis, we incorporated complementary datasets on weather, land cover, and water quality, enabling us to investigate how these environmental factors influence elk migration. Additionally, we explored temporal patterns, examining variations in migration year-over-year and across different seasons. This multidimensional approach allowed us to gain deeper insights into the behavior of these iconic animals and how they interact with their environment.
+
+Through this project, we aimed not only to advance our technical expertise but also to foster appreciation and understanding of the intricate natural processes that unfold in these beloved landscapes.
+
+## Related work:
 
 Anything that inspired you, such as a paper, a web site, or something we discussed in class.
 
-## Initial questions: 
-What questions are you trying to answer? How did these questions evolve over the course of the project? What new questions did you consider in the course of your analysis?
-## Data: Source, scraping method, cleaning, etc.
+Wildlife in Yellowstone peaked our interest largely due to the fact that its natural geography is so odd. It is laid on top of a *supervolcano* with many areas bubbling and boiling. While visiting the park this summer, we learned an odd fact that the biodiversity has suffered much less loss than neighboring areas and much of the world. This is largely why we wanted to study the animal movement and see if other environmental factors have affected migration patterns.
 
-## Exploratory analysis: 
+## Initial questions:
+
+What questions are you trying to answer? How did these questions evolve over the course of the project? What new questions did you consider in the course of your analysis?
+
+Initial questions we had about the elk migration were:
+
+1.  Where do the elk move around in Yellowstone and the Grand Tetons National Parks?
+2.  Do the elk that are collared with GPS signal move individually or as a pack?
+3.  How does elk movement change over time of year and year to year.
+4.  How do environmental factors such as weather, land cover, and water quality affect the elk's migration patterns?
+
+As the analysis evolved, additional questions that we asked were:
+
+1.  Does temperature affect the distance traveled by the elk? What about rainfall and snowfall?
+2.  
+
+## Data:
+
+Source, scraping method, cleaning, etc.
+
+## Exploratory analysis:
+
 Visualizations, summaries, and exploratory statistical analyses. Justify the steps you took, and show any major changes to your ideas.
 
-## Additional analysis: 
+## Additional analysis:
+
 If you undertake formal statistical analyses, describe these in detail
 
-## Discussion: 
+## Discussion:
+
 What were your findings? Are they what you expect? What insights into the data can you make?
 
-
 As this will be your only chance to describe your project in detail, make sure that your report is a standalone document that fully describes your process and results. We also expect you to write high-quality code that is understandable to an outside reader. Coding collaboratively and actively reviewing code within the team will help with this!
-
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

@@ -6,7 +6,7 @@ navbar:
   - text: "Data Sources"
     href: data_sources.html
   - text: "Data Cleaning"
-    href: data_cleaning.html
+    href: cleaning_data.html
   - text: "Analysis"
     href: analysis.html
   - text: "Report"
