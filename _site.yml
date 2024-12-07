@@ -10,7 +10,7 @@ navbar:
   - text: "Report"
     href:  report.html
   - text: "Elk Dashboard"
-    href:  elk_shiny_dashboard.Rmd
+    href:  water_shiny_dashboard.html
   right:
     - text: "Meet the Team"
       href: about_team.html
