@@ -488,6 +488,8 @@ Once the land cover data was converted to its corresponding latitude and longitu
 ### Weather  
 <img src = "pics/snow_move.jpg">
 
+Each of the four weather variables were plotted against the total distance traveled per day for each elk. For total precipitation, we could not determine based on the data whether there was a positive or negative association between the precipitation and elk travel distance; it appears that there were about as many elk who increased their travel distance in response to increased precipitation as there were elk who decreased their travel distance as precipitation increased, resulting in a relatively flat trend among all elk. As snowfall increased, we saw that while we had fewer elk to study this weather variable, the elk followed a similar travel pattern of a sharp increase in distance traveled on days with little snowfall, followed by a sharp decrease in distance with moderate snowfall, followed by gradual increase in distance with heavier snowfall. Snow depth versus distance traveled followed a similar pattern to snowfall, and this time we had more elk subjects available to study, which helps reinforce the general pattern (seen in both snowfall and snow depth) of sharp increase in distance traveled with little snow (fall or depth), then sharp decrease in moderate snow, then gradual increase in heavy snow. For temperature, we saw a general inverse relationship between average temperature and daily distance traveled, in which daily distance traveled decreased as daily average temperature increased.
+
 ### Water Quality  
 <img src = "pics/river_crossing.jpg">
 
