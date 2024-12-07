@@ -25,7 +25,7 @@ Our main data set is the Elk GPS collar data from National Elk Refuge (2006-2015
 
 ## Cleaning Elk Data
 
-The elk data contains a unique ID for each of the 17 elk. It includes a date-time varaible and coordinates. There are To clean the elk data, we we drop the `tz` timezone variable, because it is homogeneous. We drop the `utm_x` and `utm_y` variables because they are simply another kind of location tracking, and we already have latitude and longitude. We create the `dist_km` variable, which measures the distance traveled in kilometers between observed points using the `distHaversine` function from the `geosphere` package. The length of the shortest line between two points on a sphere is the Haversine distance.
+The elk data contains a unique ID for each of the 17 elk. It includes a date-time variable and coordinates. There are To clean the elk data, we we drop the `tz` timezone variable, because it is homogeneous. We drop the `utm_x` and `utm_y` variables because they are simply another kind of location tracking, and we already have latitude and longitude. We create the `dist_km` variable, which measures the distance traveled in kilometers between observed points using the `distHaversine` function from the `geosphere` package. The length of the shortest line between two points on a sphere is the Haversine distance.
 
 ```{r}
 elk = 
@@ -59,9 +59,9 @@ elk =
 
 Our second data set is the land cover data in the state of Wyoming published by the GAP Analysis Project in 2019. This data set uses satellite imagery from 2011 to get land cover data accurate to thirty square meters. While our elk migration data ranges from 2006 to 2015, we make the assumption that land coverage in the form of water or vegetation stays approximately constant over time. The data is available [here](https://www.usgs.gov/programs/gap-analysis-project/science/land-cover-data-download).
 
-We use the [terra package](https://bookdown.org/mcwimberly/gdswr-book/coordinate-reference-systems.html#reprojecting-raster-data) to import and transform the data into latitude and longitude coordinates. We save a cleaned, cropped version of the land cover data. 
+We use the [terra package](https://bookdown.org/mcwimberly/gdswr-book/coordinate-reference-systems.html#reprojecting-raster-data) to import and transform the data into latitude and longitude coordinates. We save a cleaned, cropped version of the land cover data. For the purpose of this website, we won't evaluate the code chunk below.
 
-```{r}
+```{r eval=FALSE}
 land = rast('raw_data/land_cover/land_cover.tif')
 
 # Reprojecting in latitude and longitude
@@ -95,6 +95,8 @@ terra::writeRaster(small_land_coord, 'clean_data/land_cover.tif', overwrite=TRUE
 
 Using terra's `extract` function, we get the land cover at the relevant points of the analysis, i.e. the locations of the elk. 
 ```{r}
+small_land_coord = rast('clean_data/land_cover.tif')
+
 temp_elk = 
   elk |> 
   mutate(

@@ -3,9 +3,7 @@ output_dir: "."
 navbar:
   title: "Home"
   left:
-  - text: "Data Sources"
-    href: data_sources.html
-  - text: "Data Cleaning"
+  - text: "Data"
     href: cleaning_data.html
   - text: "Analysis"
     href: analysis.html

@@ -325,10 +325,7 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="data_sources.html">Data Sources</a>
-</li>
-<li>
-  <a href="data_cleaning.html">Data Cleaning</a>
+  <a href="cleaning_data.html">Data</a>
 </li>
 <li>
   <a href="analysis.html">Analysis</a>
@@ -389,18 +386,68 @@ vary:</p>
 <div id="motivation" class="section level2">
 <h2>Motivation:</h2>
 <p>Provide an overview of the project goals and motivation.</p>
+<p>Our project explores the dynamics of elk migration in the Grand
+Tetons and Yellowstone National Park. Inspired by our visits to national
+parks and our love for wildlife, we embarked on this project to combine
+interests in wildlife, the environment and our new found data science
+skills. Utilizing R’s mapping capabilities, particularly the leaflet
+package, we aimed to create an interactive platform to visualize and
+analyze elk movement patterns.</p>
+<p>To enrich our analysis, we incorporated complementary datasets on
+weather, land cover, and water quality, enabling us to investigate how
+these environmental factors influence elk migration. Additionally, we
+explored temporal patterns, examining variations in migration
+year-over-year and across different seasons. This multidimensional
+approach allowed us to gain deeper insights into the behavior of these
+iconic animals and how they interact with their environment.</p>
+<p>Through this project, we aimed not only to advance our technical
+expertise but also to foster appreciation and understanding of the
+intricate natural processes that unfold in these beloved landscapes.</p>
 </div>
 <div id="related-work" class="section level2">
 <h2>Related work:</h2>
 <p>Anything that inspired you, such as a paper, a web site, or something
 we discussed in class.</p>
+<p>Wildlife in Yellowstone peaked our interest largely due to the fact
+that its natural geography is so odd. It is laid on top of a
+<em>supervolcano</em> with many areas bubbling and boiling. While
+visiting the park this summer, we learned an odd fact that the
+biodiversity has suffered much less loss than neighboring areas and much
+of the world. This is largely why we wanted to study the animal movement
+and see if other environmental factors have affected migration
+patterns.</p>
 </div>
-<div id="initial-questions" class="section level2">
-<h2>Initial questions:</h2>
+<div id="questions" class="section level2">
+<h2>Questions:</h2>
 <p>What questions are you trying to answer? How did these questions
 evolve over the course of the project? What new questions did you
-consider in the course of your analysis? ## Data: Source, scraping
-method, cleaning, etc.</p>
+consider in the course of your analysis?</p>
+<p>Initial questions we had about the elk migration were:</p>
+<ol style="list-style-type: decimal">
+<li>Where do the elk move around in Yellowstone and the Grand Tetons
+National Parks?</li>
+<li>Do the elk that are collared with GPS signal move individually or as
+a pack?</li>
+<li>How does elk movement change over time of year and year to
+year.</li>
+<li>How do environmental factors such as weather, land cover, soil
+chemistry, and soil temperature affect the elk’s migration
+patterns?</li>
+</ol>
+<p>As the analysis evolved, we realized some data sources were more
+applicable than others. Some did not have enough data points or were not
+in the geographically area that we were interested in. Additional
+questions that we asked were:</p>
+<ol style="list-style-type: decimal">
+<li>Does temperature affect the distance traveled by the elk? What about
+rainfall, snowfall, and snow depth?</li>
+<li>Does water quality factors, such as arsenic levels, affect the
+movement of the elk?</li>
+</ol>
+</div>
+<div id="data" class="section level2">
+<h2>Data:</h2>
+<p>Source, scraping method, cleaning, etc.</p>
 </div>
 <div id="exploratory-analysis" class="section level2">
 <h2>Exploratory analysis:</h2>

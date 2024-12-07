@@ -30,7 +30,7 @@ Anything that inspired you, such as a paper, a web site, or something we discuss
 
 Wildlife in Yellowstone peaked our interest largely due to the fact that its natural geography is so odd. It is laid on top of a *supervolcano* with many areas bubbling and boiling. While visiting the park this summer, we learned an odd fact that the biodiversity has suffered much less loss than neighboring areas and much of the world. This is largely why we wanted to study the animal movement and see if other environmental factors have affected migration patterns.
 
-## Initial questions:
+## Questions:
 
 What questions are you trying to answer? How did these questions evolve over the course of the project? What new questions did you consider in the course of your analysis?
 
@@ -39,12 +39,12 @@ Initial questions we had about the elk migration were:
 1.  Where do the elk move around in Yellowstone and the Grand Tetons National Parks?
 2.  Do the elk that are collared with GPS signal move individually or as a pack?
 3.  How does elk movement change over time of year and year to year.
-4.  How do environmental factors such as weather, land cover, and water quality affect the elk's migration patterns?
+4.  How do environmental factors such as weather, land cover, soil chemistry, and soil temperature affect the elk's migration patterns?
 
-As the analysis evolved, additional questions that we asked were:
+As the analysis evolved, we realized some data sources were more applicable than others. Some did not have enough data points or were not in the geographically area that we were interested in. Additional questions that we asked were:
 
-1.  Does temperature affect the distance traveled by the elk? What about rainfall and snowfall?
-2.  
+1.  Does temperature affect the distance traveled by the elk? What about rainfall, snowfall, and snow depth?
+2.  Does water quality factors, such as arsenic levels, affect the movement of the elk?
 
 ## Data:
 
