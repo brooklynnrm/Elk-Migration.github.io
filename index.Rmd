@@ -16,6 +16,9 @@ library(leaflet.extras2)
 
 ```{r, include = FALSE}
 # read data
+elk_df = read_csv("clean_data/elk.csv") |>
+  mutate(datetime = make_datetime(year, month, day, hour)) |>
+  select(elk_id, datetime, lat, long)
 ```
 
 ---
@@ -25,35 +28,25 @@ library(leaflet.extras2)
 <img src="pics/elk_1.jpg" alt="Description">
 
 <center style="font-size: 10px;"> Photo from:  https://www.yellowstone.org/ </center>
-     
-<br><br>                                       
 
-Description of elk and why we are interested. 
-
-
-<br><br>
-
+We will be exploring the movement of 17 female elk through Yellowstone and the Grand Tetons National Park from 2006 to 2015. Environmental factors such as weather, land cover, and water quality will be analyzed for causing  differences in elk migration.  
 
 ---
 
 ### Screen cast 
 
+Take a tour of our website!
 
-#<iframe width="560" height="315" src="insert_youtube_video_here" title="YouTube video #player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; #web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="insert_youtube_video_here" title="YouTube video #player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; #web-share" allowfullscreen></iframe>
 
 ---
 
 
 ### Meet the Elk in Yellowstone
 
-Hover over each point on the map to learn more about.
-Import elk migration data.
+Hover over each point on the map to see the elk ID and time.
 
 ```{r}
-elk_df = read_csv("clean_data/elk.csv") |>
-  mutate(datetime = make_datetime(year, month, day, hour)) |>
-  select(elk_id, datetime, lat, long)
-
 # Let's make a custom elk icon!!
 moose_icon <- makeIcon(
   iconUrl = "pics/elk_icon.png", # Replace with the URL of your moose image
