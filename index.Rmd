@@ -22,9 +22,8 @@ library(leaflet.extras2)
 
 ### Welcome
 
-```{r, echo=FALSE, out.width="60%", fig.align = 'center'}
-knitr::include_graphics("pics/elk_1.jpg")
-```
+<img src="pics/elk_1.jpg" alt="Description">
+
 <center style="font-size: 10px;"> Photo from:  https://www.yellowstone.org/ </center>
      
 <br><br>                                       
