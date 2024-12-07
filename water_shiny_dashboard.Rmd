@@ -16,10 +16,10 @@ library(leaflet)
 ```
 
 ```{r}
-elk = read.csv(file = "clean_data/elk.csv") |> 
+elk = read.csv(file = "./water_analysis_files/data2/elk.csv") |> 
   mutate(date = as.Date(paste(year, month, day, sep = "-")))
 
-water_quality = read.csv(file = "clean_data/water_quality.csv") |> 
+water_quality = read.csv(file = "./water_analysis_files/data2/water_quality.csv") |> 
   mutate(date = as.Date(paste(year, month, day, sep = "-"))) |> 
   filter(location_id %in% c("GRTE_SNR01", "GRTE_SNR02", "YELL_LM000.5M", "YELL_YS549.7M", "YELL_MD133.2T", "YELL_MDR"))
 ```
@@ -70,12 +70,12 @@ Column {data-width=650}
 
 ```{r}
 elk_icon = makeIcon(
-  iconUrl = "data/elk_icon.png", 
+  iconUrl = "data2/elk_icon.png", 
   iconWidth = 30, 
   iconHeight = 30)
 
 water_icon = makeIcon(
-  iconUrl = "data/water_droplet.png",
+  iconUrl = "data2/water_droplet.png",
   iconWidth = 30,
   iconHeight = 30)
 ```
@@ -139,7 +139,7 @@ map = map |>
 })
 
 output$waterQualityPlot = renderPlot ({
-  data - filtered_data()
+  data = filtered_data()
 
 if(nrow(data) > 0) {
 ggplot(data, aes(x = date, y = as.numeric(result_text))) +
