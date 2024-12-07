@@ -125,8 +125,7 @@ myMap <- get_stadiamap(
   crop=FALSE)
 ```
 
-
-![elk]("pics/elk.png")
+<img src = "pics/elk.png">
 
 ### Elk Movement
 

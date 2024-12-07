@@ -18,7 +18,7 @@ library(leaflet.extras2)
 # read data
 elk_df = read_csv("clean_data/elk.csv") |>
   mutate(datetime = make_datetime(year, month, day, hour)) |>
-  select(elk_id, datetime, lat, long)
+  dplyr::select(elk_id, datetime, lat, long)
 ```
 
 ---
@@ -36,8 +36,6 @@ We will be exploring the movement of 17 female elk through Yellowstone and the G
 ### Screen cast 
 
 Take a tour of our website!
-
-<iframe width="560" height="315" src="insert_youtube_video_here" title="YouTube video #player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; #web-share" allowfullscreen></iframe>
 
 ---
 
