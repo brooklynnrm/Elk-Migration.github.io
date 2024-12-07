@@ -78,7 +78,7 @@ daily_elk <-
 
 Among the key factors that we considered to be potentially influential to elk migration was local weather patterns, specifically precipitation (including rain and snow) and average temperature. For this, we analyzed weather station data provided by NOAA National Centers for Environmental Information, utilizing daily weather records from 2006 to 2015 (to correspond with our elk migration data).  
 
-**Selecting Appropriate Weather Stations**
+## Selecting Appropriate Weather Stations
 
 Given that there were numerous weather stations in the Yellowstone/Grand Teton area in Wyoming, several of which were contained within the various elk pathways we analyzed, we decided that the best way to effectively approximate the weather patterns across the entirety migration pathways would be to use the data provided by the four stations in the plots below, which span a wide coverage of the migration areas (shown in red).  
 
@@ -110,7 +110,7 @@ four_stations_elk_mvmt_plot + four_stations_labels_plot
 
 Once we selected the appropriate weather stations and reduced our weather dataset accordingly (`reduced_weather`), we could then begin considering various weather-related research questions. These questions were grouped into two categories: analyzing the weather patterns visible in the study area over the 2006-2015 period, and relating the weather data with the elk migration data to see if there were any visible patterns and/or trends between the two.  
 
-**Evaluating Weather Patterns and Trends**
+## Evaluating Weather Patterns and Trends
 
 In the `reduced_weather` dataset, we were mainly concerned with four weather variables: `PRCP` (precipitation), `SNOW` (snowfall), `SNWD` (snow depth), and `TAVG` (average temperature). Each of these variables were visualized using the same graph types. For precipitation, snowfall, and snow depth, the daily measurements among the four weather stations were first aggregated by station, year, and month, to show the monthly totals among each station throughout the 2006-2015 period. These datasets were further condensed into average monthly totals of precipitation, snowfall and snow depth among the four stations; this method provided us with an estimated sum of these three variables covering a wide swath of the study area. Average temperature was calculated by aggregating daily average temperature measurements by month and year and taking the mean of these values. 
 
@@ -328,7 +328,7 @@ reduced_weather |>
          yaxis = list(title = "Average Temperature (F)"), legend = list(title = list(text = "Year")))
 ```
 
-**Analyzing Weather Data and Elk Migration Patterns**
+## Analyzing Weather Data and Elk Migration Patterns
 
 After examining the weather data by itself, we then visualized these datasets with the elk migration data to see if there were any visible patterns or trends that emerged. More specifically, we wanted to see if changes in each of the four weather measurements affected the total distance traveled by each elk on a given day, and we did so by plotting the total daily distance traveled as the dependent variable against each of the four weather measurements as the dependent variable.  
 
