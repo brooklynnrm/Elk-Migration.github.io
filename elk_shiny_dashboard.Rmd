@@ -19,7 +19,7 @@ library(RColorBrewer)
 
 Import data.
 ```{r}
-elk_df = read_csv("../clean_data/elk.csv") |>
+elk_df = read_csv("clean_data/elk.csv") |>
   mutate(datetime = make_datetime(year, month, day, hour),
          elk_id = factor(elk_id)) |>
   select(elk_id, datetime, lat, long)
