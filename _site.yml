@@ -5,8 +5,6 @@ navbar:
   left:
   - text: "Data"
     href: cleaning_data.html
-  - text: "Analysis"
-    href: analysis.html
   - text: "Report"
     href:  report.html
   - text: "Elk Dashboard"
@@ -15,6 +13,10 @@ navbar:
     menu:
     - text: "Elk Analysis"
       href: elk_analysis.html
+    - text: "Water Analysis"
+      href: water_analysis.html
+    - text: "Weather Analysis"
+      href: weather_analysis.html      
   right:
     - text: "Meet the Team"
       href: about_team.html
