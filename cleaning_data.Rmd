@@ -243,7 +243,7 @@ write.csv(clean_water, 'clean_data/clean_water.csv', row.names = FALSE)
 
 
 
-## Reading in Temperature
+## Reading in Weather Data
 
 
 To explore the relationship between temperature, precipitation, and migration, we use the Global Historical Climatology Network's data. The data is available [here](https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily)
