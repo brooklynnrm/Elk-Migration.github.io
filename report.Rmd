@@ -25,8 +25,6 @@ Wildlife in Yellowstone peaked our interest largely due to the fact that its nat
 
 ### Questions  
 
-What questions are you trying to answer? How did these questions evolve over the course of the project? What new questions did you consider in the course of your analysis?  
-
 Initial questions we had about the elk migration were:  
 
 1.  Where do the elk move around in Yellowstone and the Grand Tetons National Parks?  
@@ -51,11 +49,6 @@ Water quality data was obtained from datasets provided by the National Park Serv
 
 ### Exploratory analysis  
 
-Visualizations, summaries, and exploratory statistical analyses. Justify the steps you took, and show any major changes to your ideas.  
-
-
-
-
 
 ### Additional analysis  
 
@@ -63,14 +56,16 @@ Beyond the visualizations and analyses presented in the exploratory analysis, th
 
 ### Discussion
 
-What were your findings? Are they what you expect? What insights into the data can you make?
-
-As this will be your only chance to describe your project in detail, make sure that your report is a standalone document that fully describes your process and results. We also expect you to write high-quality code that is understandable to an outside reader. Coding collaboratively and actively reviewing code within the team will help with this!
-
 **Elk Migration Characteristics**  
+<img src = "pics/elk_pack.jpg">
 
+Once the elk migration data was cleaned and transformed, we explored migration patterns using time points, latitude, and longitude values. Analyzing data for 17 elk revealed that not all time points were consistently available for every individual. To assess the range of movement, we examined latitude and longitude ranges, identifying elk 917 as the top explorer. Monthly movements were compared by year, alongside daily averages, which typically hovered around 4 km, though some days showed much greater distances.
+
+For better comparisons, we focused on eight elk with overlapping data between July 2013 and December 2014. Within this timeframe, we examined seasonal impacts on movement, noting spikes in May and December. To ensure data consistency, we checked whether the number of data points influenced total distance but found no significant issues, allowing us to proceed with raw distance data in kilometers. Finally, we used `leaflet` to map elk movements for May and December, showing start and endpoints as well as color-coded paths. Users can explore additional months and years or check water quality measures for corresponding time points through the interactive elk dashboard.
 
 **Land Cover**  
+<img src = "pics/elk.png">
+
 Once the land cover data was converted to its corresponding latitude and longitude and layered with the distribution of elk migration, we were able to visualize the distribution of land cover (in terms of vegetation abundance). When visualizing the entire study area, we found that 137 was the most common land cover value, and this corresponds to sparse vegetation such as areas of bare rock (on a scale with a maximum of 583, which represents land covered by water). The second most common value was 500, which corresponded to abundant vegetation.  
 
 After plotting the distribution of land cover values in the areas traveled through by elk, we revealed that this time the most frequent land cover values were between 300 and 500, indicating medium to high levels of vegetation. This trend seems appropriate given that elk are herbivorous grazers, as well as the fact that abundant vegetation can also provide necessary shade on warmer, sunny days.  
@@ -78,10 +73,12 @@ After plotting the distribution of land cover values in the areas traveled throu
 In an attempt to visualize the migration habits of elk based on different land cover types, we divided the relative elk density by land cover value, revealing that the land cover values most frequented by the elk were between ~320-500, or medium to high vegetation. 
 
 **Weather**  
-
+<img src = "pics/snow_move.jpg">
 
 **Water Quality**  
-We discovered that among the results of the water quality visualizations was that high arsenic concentrations were reported in July and August of 2010 in the sampling site `GRTE_SNR01`. At this site around the same time as when these arsenic measurements were recorded, we also saw that two elk had traveled around this sampling site, potentially being exposed to unhealthy levels of arsenic in water. Other notable markers of poor water quality that we observed included low dissolved oxygen concentrations in June and July of 2010, as well as relatively high chloride levels in October of 2010, a chemical that could also indicate the presence of lead in water, which has no safe concentration for exposure.  
+<img src = "pics/river_crossing.jpg">
+
+We discovered that among the results of the water quality visualizations was that high arsenic concentrations were reported in July and August of 2010 in the sampling site `GRTE_SNR01`. At this site around the same time as when these arsenic measurements were recorded, we also saw that two elk had traveled around this sampling site, potentially being exposed to unhealthy levels of arsenic in water. Other notable markers of poor water quality that we observed included low dissolved oxygen concentrations in June and July of 2010, as well as relatively high chloride levels in October of 2010, a chemical that could also indicate the presence of lead in water, which has no safe concentration for exposure. Users can explore the water quality and corresponding elk movement on the elk dashboard.
 
 
 

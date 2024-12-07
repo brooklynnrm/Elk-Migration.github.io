@@ -1,7 +1,5 @@
 ---
 title: "Data Sources and Processing"
-author: "Elk Team"
-date: "2024-11-16"
 output: html_document
 ---
 
