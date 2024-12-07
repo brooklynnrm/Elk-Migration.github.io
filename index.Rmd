@@ -61,7 +61,8 @@ moose_icon <- makeIcon(
 )
 
 elk_df |>
-  filter(year(datetime) == 2012) |>
+  filter(year(datetime) == 2012,
+         month(datetime) == 5) |>
   leaflet() |>
   addProviderTiles(providers$CartoDB.Positron, group = "Base Map") |>
   addProviderTiles(providers$Esri.NatGeoWorldMap, group = "NatGeo Map") |>
@@ -72,11 +73,3 @@ elk_df |>
   )
     
 ```
-
----
-
-
-For more information about Yellowstone's Elk, check out these references: 
-
-1. 
-2. 
