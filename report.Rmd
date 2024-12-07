@@ -1,5 +1,6 @@
 ---
 title: "Report"
+authors: Brooklynn McNeil, Wayne Monical, Dylan Morgan, Tamara Pichardo
 output: 
   html_document:
     code_folding: hide
@@ -8,13 +9,9 @@ output:
     toc_float: true
 ---
 
-# Elk Expeditions: The Elk, the Environment, and the Evolving Migration in Yellowstone
+# Elk Expeditions: The Elk, the Environment, and the Evolving Migration in Yellowstone  
 
-The written report produced by your team is central to this project. This will detail how you completed your project, and should cover data collection and cleaning, exploratory analyses, alternative strategies, descriptions of approaches, and a discussion of results. We anticipate that your project will change somewhat over time; these changes and the reasons for them should be documented! You will write one report document per group, and be sure to include all group member names in the document.
-
-Your report should include the following topics. Depending on your project type the amount of discussion you devote to each of them will vary:
-
-## Motivation
+## Motivation  
 
 Our project explores the dynamics of elk migration in the Grand Tetons and Yellowstone National Park. Inspired by our visits to national parks and our love for wildlife, we embarked on this project to combine interests in wildlife, the environment and our new found data science skills. Utilizing R's mapping capabilities, particularly the leaflet package, we aimed to create an interactive platform to visualize and analyze elk movement patterns.
 
@@ -22,46 +19,76 @@ To enrich our analysis, we incorporated complementary datasets on weather, land 
 
 Through this project, we aimed not only to advance our technical expertise but also to foster appreciation and understanding of the intricate natural processes that unfold in these beloved landscapes.
 
-## Related work
+## Related work  
 
 Wildlife in Yellowstone peaked our interest largely due to the fact that its natural geography is so odd. It is laid on top of a *supervolcano* with many areas bubbling and boiling. While visiting the park this summer, we learned an odd fact that the biodiversity has suffered much less loss than neighboring areas and much of the world. This is largely why we wanted to study the animal movement and see if other environmental factors have affected migration patterns. 
 
-## Questions
+## Questions  
 
-What questions are you trying to answer? How did these questions evolve over the course of the project? What new questions did you consider in the course of your analysis?
+What questions are you trying to answer? How did these questions evolve over the course of the project? What new questions did you consider in the course of your analysis?  
 
-Initial questions we had about the elk migration were:
+Initial questions we had about the elk migration were:  
 
-1.  Where do the elk move around in Yellowstone and the Grand Tetons National Parks?
-2.  Do the elk that are collared with GPS signal move individually or as a pack?
-3.  How does elk movement change over time of year and year to year.
-4.  How do environmental factors such as weather, land cover, soil chemistry, and soil temperature affect the elk's migration patterns?
+1.  Where do the elk move around in Yellowstone and the Grand Tetons National Parks?  
+2.  Do the elk that are collared with GPS signal move individually or as a pack?  
+3.  How does elk movement change over time of year and year to year.  
+4.  How do environmental factors such as weather, land cover, soil chemistry, and soil temperature affect the elk's migration patterns?  
 
-As the analysis evolved, we realized some data sources were more applicable than others. Some did not have enough data points or were not in the geographically area that we were interested in. Additional questions that we asked were:
+As the analysis evolved, we realized some data sources were more applicable than others. Some did not have enough data points or were not in the geographically area that we were interested in. Additional questions that we asked were:  
 
-1.  Does temperature affect the distance traveled by the elk? What about rainfall, snowfall, and snow depth?
-2.  Does water quality factors, such as arsenic levels, affect the movement of the elk?
+1.  Does temperature affect the distance traveled by the elk? What about rainfall, snowfall, and snow depth?  
+2.  Does water quality factors, such as arsenic levels, affect the movement of the elk?  
 
-## Data
+## Data  
 
-The elk data used in this project was provided by the United States Geological Survey (USGS), which utilized GPS collar tracking in the National Elk Rescue area near Yellowstone National Park and Grand Teton National Park, Wyoming, from 2006 to 2015. The data was comprised on 17 adult female elk, each of which had their daily locations tracked for 1-2 years. From this data source, we were able to map the pathways of each elk over time, which also allowed us to calculate the daily distance traveled among the elk subjects. 
+The elk data used in this project was provided by the United States Geological Survey (USGS), which utilized GPS collar tracking in the National Elk Rescue area near Yellowstone National Park and Grand Teton National Park, Wyoming, from 2006 to 2015. The data was comprised on 17 adult female elk, each of which had their daily locations tracked for 1-2 years. From this data source, we were able to map the pathways of each elk over time, which also allowed us to calculate the daily distance traveled among the elk subjects.  
 
-Land cover data, also provided by USGS, was presented as a raster dataset that shows the distribution of vegetation, water, and bare rock throughout the study area in 2011, which falls near the midpoint of the 2006-2015 study period of this project. The data was presented by the GAP Analysis Project in Wyoming in 2019, and we were able to transform the raster data into their corresponding latitude and longitude coordinates, which allowed us to layer the elk migration pathways on top of the land cover data. 
+Land cover data, also provided by USGS, was presented as a raster dataset that shows the distribution of vegetation, water, and bare rock throughout the study area in 2011, which falls near the midpoint of the 2006-2015 study period of this project. The data was presented by the GAP Analysis Project in Wyoming in 2019, and we were able to transform the raster data into their corresponding latitude and longitude coordinates, which allowed us to layer the elk migration pathways on top of the land cover data.  
 
-Weather data, provided by the National Oceanic and Atmospheric Administration (NOAA) National Centers for Environmental Information (NCEI), featured daily weather station recordings (from 2006-2015) at four different stations that fell within the elk migration pathways and spanned wide portions of the study area. We primarily focused on total precipitation, snowfall, snow depth, and average temperature. 
+Weather data, provided by the National Oceanic and Atmospheric Administration (NOAA) National Centers for Environmental Information (NCEI), featured daily weather station recordings (from 2006-2015) at four different stations that fell within the elk migration pathways and spanned wide portions of the study area. We primarily focused on total precipitation, snowfall, snow depth, and average temperature.  
 
-Water quality data was obtained from datasets provided by the National Park Service, and featured water sample measurements containing various concentrations of water contaminants, such as arsenic, chloride, and magnesium, as well as other properties, such as dissolved oxygen content and pH. Among the water sampling sites considered, this project focused on data collected at two sites that fell within the migration pathways: `GRTE_SNR01` and `GRTE_SNR02`. 
+Water quality data was obtained from datasets provided by the National Park Service, and featured water sample measurements containing various concentrations of water contaminants, such as arsenic, chloride, and magnesium, as well as other properties, such as dissolved oxygen content and pH. Among the water sampling sites considered, this project focused on data collected at two sites that fell within the migration pathways: `GRTE_SNR01` and `GRTE_SNR02`.  
 
-## Exploratory analysis
+## Exploratory analysis  
 
-Visualizations, summaries, and exploratory statistical analyses. Justify the steps you took, and show any major changes to your ideas.
+Visualizations, summaries, and exploratory statistical analyses. Justify the steps you took, and show any major changes to your ideas.  
 
-## Additional analysis
 
-If you undertake formal statistical analyses, describe these in detail
+
+## Additional analysis  
+
+Beyond the visualizations and analyses presented in the exploratory analysis, this project also featured some additional forms of analysis, particularly regarding the water quality data and its potential impact on the elk subjects. After compiling and visualizing the data pertaining to water contaminants (e.g., chloride, magnesium, phosphorous) and other properties (e.g., dissolved oxygen, water temperature, pH), we were able to assess the potential impacts that these toxicant concentrations could have on the health of the elk subjects. 
 
 ## Discussion
 
 What were your findings? Are they what you expect? What insights into the data can you make?
 
 As this will be your only chance to describe your project in detail, make sure that your report is a standalone document that fully describes your process and results. We also expect you to write high-quality code that is understandable to an outside reader. Coding collaboratively and actively reviewing code within the team will help with this!
+
+**Elk Migration Characteristics**  
+
+
+**Land Cover**  
+Once the land cover data was converted to its corresponding latitude and longitude and layered with the distribution of elk migration, we were able to visualize the distribution of land cover (in terms of vegetation abundance). When visualizing the entire study area, we found that 137 was the most common land cover value, and this corresponds to sparse vegetation such as areas of bare rock (on a scale with a maximum of 583, which represents land covered by water). The second most common value was 500, which corresponded to abundant vegetation.  
+
+After plotting the distribution of land cover values in the areas traveled through by elk, we revealed that this time the most frequent land cover values were between 300 and 500, indicating medium to high levels of vegetation. This trend seems appropriate given that elk are herbivorous grazers, as well as the fact that abundant vegetation can also provide necessary shade on warmer, sunny days.  
+
+In an attempt to visualize the migration habits of elk based on different land cover types, we divided the relative elk density by land cover value, revealing that the land cover values most frequented by the elk were between ~320-500, or medium to high vegetation. 
+
+**Weather**  
+
+
+**Water Quality**  
+
+We discovered that among the results of the water quality visualizations was that high arsenic concentrations were reported in July and August of 2010 in the sampling site `GRTE_SNR01`. At this site around the same time as when these arsenic measurements were recorded, we also saw that two elk had traveled around this sampling site, potentially being exposed to unhealthy levels of arsenic in water. Other notable markers of poor water quality that we observed included low dissolved oxygen concentrations in June and July of 2010, as well as relatively high chloride levels in October of 2010, a chemical that could also indicate the presence of lead in water, which has no safe concentration for exposure.  
+
+
+
+
+
+
+
+
+
+
+
