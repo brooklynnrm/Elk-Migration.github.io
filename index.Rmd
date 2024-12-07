@@ -31,14 +31,8 @@ elk_df = read_csv("clean_data/elk.csv") |>
 
 We will be exploring the movement of 17 female elk through Yellowstone and the Grand Tetons National Park from 2006 to 2015. Environmental factors such as weather, land cover, and water quality will be analyzed for causing  differences in elk migration.  
 
----
-
-### Screen cast 
-
-Take a tour of our website!
 
 ---
-
 
 ### Meet the Elk in Yellowstone
 
@@ -64,3 +58,32 @@ elk_df |>
   )
     
 ```
+
+---
+
+### Screen cast 
+
+Take a tour of our website!
+
+```{css, echo = FALSE}
+.video-container { 
+  position: relative; 
+  padding-bottom: 56.25%; 
+  padding-top: 30px; 
+  height: 0; 
+  overflow: hidden; 
+}
+
+.video-container iframe, .video-container object, .video-container embed { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+}
+```
+
+<div class="video-container">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GoROslWZ984?si=DQQLEp3TLWnp7xcY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<br>
